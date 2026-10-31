@@ -1,0 +1,24 @@
+================================================================================
+PARALLAX CYBERSECURITY INITIATIVE - PUBLIC PROJECT BRIEF
+Document Classification: PUBLIC
+Version: 1.4.0
+Author: Parallax Open Architecture Working Group
+================================================================================
+
+PROJECT OVERVIEW:
+Project Parallax is an open-source cybersecurity defense framework designed to 
+demonstrate zero-trust principles across distributed artificial intelligence workloads.
+
+OBJECTIVES:
+1. Provide transparent telemetry and threat assessment across autonomous agent pipelines.
+2. Verify authorization boundaries between reasoning engines and environment actuation tools.
+3. Establish reproducible benchmarks for evaluating prompt-injection resilience.
+
+KEY PUBLIC MILESTONES:
+- Phase 1: Gateway architectural draft and API schema finalization.
+- Phase 2: Community sandbox release and automated benchmark suites.
+- Phase 3: Public hackathon showcase and defensive agent validation.
+
+CONTACT & REPOSITORY:
+For general inquiries, reach out to community@parallax-sec.org or inspect the
+public documentation at https://parallax-defense.example.com.

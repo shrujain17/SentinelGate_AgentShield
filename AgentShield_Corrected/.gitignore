@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+frontend/node_modules/
+private_uploads/*
+!private_uploads/.gitkeep
+*.db
+*.db-shm
+*.db-wal
+.agentshield_backend*.pid

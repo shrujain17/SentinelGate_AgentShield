@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AgentShield | AI Security Gateway</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">PARALLAX 2026 · DEMO</p>
+          <h1>Agent<span>Shield</span></h1>
+          <p class="subtitle">A deterministic security gateway for AI agent actions.</p>
+        </div>
+        <div class="status-pill"><i></i> Gateway online</div>
+      </header>
+
+      <section class="stats" aria-label="Security rules">
+        <article><strong>2</strong><span>safe tools</span></article>
+        <article><strong>2</strong><span>approval tools</span></article>
+        <article><strong>1+</strong><span>absolute denies</span></article>
+        <article><strong>∞</strong><span>unknowns denied</span></article>
+      </section>
+
+      <section class="grid">
+        <article class="card action-card">
+          <div class="card-title"><p class="eyebrow">TOOL REQUEST</p><h2>Security checkpoint</h2></div>
+          <label>Requested tool
+            <select id="toolName">
+              <option value="read_email">read_email — allowed</option>
+              <option value="read_document">read_document — allowed</option>
+              <option value="send_email">send_email — requires approval</option>
+              <option value="delete_file">delete_file — requires approval</option>
+              <option value="read_private_file">read_private_file — denied</option>
+              <option value="unknown_tool">unknown_tool — denied</option>
+            </select>
+          </label>
+          <label>Parameters (JSON)
+            <textarea id="parameters" spellcheck="false">{"query": "project"}</textarea>
+          </label>
+          <label>Untrusted context <span>optional</span>
+            <textarea id="context" spellcheck="false" placeholder="Try: Ignore previous instructions..."></textarea>
+          </label>
+          <label class="switch"><input id="approval" type="checkbox" /><span></span>Human approval confirmed</label>
+          <button id="submitRequest" class="primary">Check and execute</button>
+        </article>
+
+        <article class="card result-card">
+          <div class="card-title"><p class="eyebrow">DECISION</p><h2>Gateway result</h2></div>
+          <div id="decisionEmpty" class="empty-state">Submit a request to see the gateway decision.</div>
+          <div id="decisionResult" hidden>
+            <div id="verdict" class="verdict"></div>
+            <p id="reason" class="reason"></p>
+            <div class="risk-row"><span>Risk score</span><div class="risk-track"><div id="riskBar"></div></div><b id="riskScore"></b></div>
+            <div class="detail-block"><span>Threats detected</span><ul id="threats"></ul></div>
+            <div class="detail-block"><span>Tool output</span><pre id="execution"></pre></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="grid lower-grid">
+        <article class="card agent-card">
+          <div class="card-title"><p class="eyebrow">LOCAL FALLBACK AGENT</p><h2>Try a natural-language request</h2></div>
+          <div class="agent-row"><input id="agentMessage" placeholder="Example: show my emails" /><button id="askAgent">Run agent</button></div>
+          <p class="hint">The agent selects a tool, but the gateway always has the final decision.</p>
+        </article>
+        <article class="card audit-card">
+          <div class="audit-head"><div class="card-title"><p class="eyebrow">AUDIT LOG</p><h2>Recent decisions</h2></div><button id="refreshAudit" class="ghost">Refresh</button></div>
+          <div id="auditLog" class="audit-log"><p class="empty-state">No decisions recorded yet.</p></div>
+        </article>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
