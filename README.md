@@ -28,23 +28,23 @@ This repository unifies all four independently developed modules into one cohere
 
 ```mermaid
 graph TD
-    User["👤 Human User / SOC Analyst"] -->|1. Natural Language Task| Agent["🧠 Person 1: AI Agent Orchestrator<br/>(Gemini 2.0 Flash / Mock Fallback)"]
+    User["👤 Human User / SOC Analyst"] -->|"1. Natural Language Task"| Agent["🧠 Person 1: AI Agent Orchestrator<br/>(Gemini 2.0 Flash / Mock Fallback)"]
     
     subgraph "Strict Zero-Trust Boundary"
-        Agent -->|2. ProposedToolCall (HTTP POST)| Gateway["🛡️ Person 3: FastAPI Security Gateway<br/>(Port 8000)"]
+        Agent -->|"2. ProposedToolCall (HTTP POST)"| Gateway["🛡️ Person 3: FastAPI Security Gateway<br/>(Port 8000)"]
     end
     
-    Gateway -->|3. Heuristic Scan| Threat["⚡ Person 4: Threat Detection Engine<br/>(Prompt Injection, Traversal, Leaks)"]
-    Gateway -->|4. Zero-Trust Check| Matrix["📋 Policy Permission Matrix<br/>(ALLOW / DENY / REQUIRE_APPROVAL)"]
+    Gateway -->|"3. Heuristic Scan"| Threat["⚡ Person 4: Threat Detection Engine<br/>(Prompt Injection, Traversal, Leaks)"]
+    Gateway -->|"4. Zero-Trust Check"| Matrix["📋 Policy Permission Matrix<br/>(ALLOW / DENY / REQUIRE_APPROVAL)"]
     
-    Matrix -->|ALLOW| Sandbox["⚙️ Synthetic Tool Sandbox<br/>(Safe Local Simulation)"]
-    Matrix -->|DENY| Block["🚫 Fail-Closed Block<br/>(HTTP 403 / Incident Log)"]
-    Matrix -->|REQUIRE_APPROVAL| Queue["⏳ HITL Approval Queue<br/>(Bound Action, 300s TTL, Single-Use)"]
+    Matrix -->|"ALLOW"| Sandbox["⚙️ Synthetic Tool Sandbox<br/>(Safe Local Simulation)"]
+    Matrix -->|"DENY"| Block["🚫 Fail-Closed Block<br/>(HTTP 403 / Incident Log)"]
+    Matrix -->|"REQUIRE_APPROVAL"| Queue["⏳ HITL Approval Queue<br/>(Bound Action, 300s TTL, Single-Use)"]
     
-    Queue -->|Inspect & Review| ReactUI["💻 Person 2: React SOC Command Center<br/>(Overview, Monitor, Threats, Approvals, Audit)"]
-    ReactUI -->|1-Click Approve / Reject| Gateway
+    Queue -->|"Inspect & Review"| ReactUI["💻 Person 2: React SOC Command Center<br/>(Overview, Monitor, Threats, Approvals, Audit)"]
+    ReactUI -->|"1-Click Approve / Reject"| Gateway
     
-    Gateway -->|5. Cryptographic Commit| DB[("💾 SQLite Audit DB &<br/>SHA-256 Hash-Chained JSONL")]
+    Gateway -->|"5. Cryptographic Commit"| DB[("💾 SQLite Audit DB &<br/>SHA-256 Hash-Chained JSONL")]
 ```
 
 ### Module Breakdown:
